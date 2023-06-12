@@ -44,10 +44,10 @@ function MainPage() {
       <Carousel autoplay autoplaySpeed={3000}>
         {banners.map((banner, index) => {
           return (
-            <Link to ={banner.href}>
-            <div id="banner">
-              <img src={`${API_URL}/${banner.imageUrl}`} alt="배너" />
-            </div>
+            <Link to={banner.href}>
+              <div id="banner">
+                <img src={`${API_URL}/${banner.imageUrl}`} alt="배너" />
+              </div>
             </Link>
           );
         })}
@@ -57,6 +57,8 @@ function MainPage() {
         {products.map(function (product, index) {
           return (
             <div className="product-card">
+              {product.soldout === 1 && <div className="product-blur" />}
+
               <Link className="product-link" to={`/products/${product.id}`}>
                 <div className="product-img">
                   <img
